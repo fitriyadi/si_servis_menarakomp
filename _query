@@ -1,0 +1,27 @@
+1. Menampilkan data servis dengan nama pelanggan tertentu
+--> select * from tb_servis join tb_pelanggan using(idpelanggan) where namapelanggan='Nama dicari'
+
+2. menampilkan data servis pada tanggal 01/05/2021 sd 31/05/2021
+--> Select * from tb_servis where tanggalmasuk between '2021/05/01' and '2021/05/01'
+Note*-> untuk paramater tanggal dibalik dari tahun,bulan,tanggal.
+
+3. Menampilkan data pelanggan yang melakukan pemanggilan servis
+--> select namapelanggan from tb_pelanggan join tb_panggilan using(idpelanggan)
+
+4. menampilkan teknisi yang akan melakukan kedatangan pada tanggal 21/05/2021
+--> select nama from tb_panggilan join tb_teknisi using(idteknisi) where tanggal='2021/05/21'
+
+5. menampilkan teknisi yang melakukan servis untuk kode servis xxx
+--> select nama from tb_servis join tb_teknisi using(idteknisi) where idservis='xxxx'
+
+6. menampilkan data barang yang pada kode servis tertentu
+--> select nama,merk,tipe,harga from tb_sparepart join tb_barang_sparepart on idpsparepart=idbarang where idservis='xxxx'
+
+7. menampilkan nama pelanggan yang servis pada bulan 05 2021
+--> select nama from tb_servis join tb_pelanggan using(idpelanggan) where month(tanggalmasuk)='05' and year(tanggalmasuk)='2021'
+
+8. menampilkan servis dengan biaya lebih dari 50.000
+--> select * from tb_servis where total>50000
+
+9. menampilkan data barang dengan harga diantara 10.000 sd 25.000
+--> select * from tb_sparepart where harga between 10000 and 25000
